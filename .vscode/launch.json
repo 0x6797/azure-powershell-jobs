@@ -1,0 +1,15 @@
+{
+    "version": "1.0.0",
+    "configurations": [
+        {
+            "name": "PowerShell: Launch Current File",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${file}",
+            "cwd": "${workspaceRoot}",
+            "args": [
+                "-NumberOfJobs", "3"
+            ]
+        }
+    ]
+}

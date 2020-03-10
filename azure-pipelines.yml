@@ -1,0 +1,39 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+#Your build pipeline references a secret variable named ‘MachinePassword’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab, and then select the option to make it secret. See https://go.microsoft.com/fwlink/?linkid=865972
+variables:
+  NumberOfJobs: 3
+
+# ----------------------------------
+# Make disabled event triggers
+# ----------------------------------
+pr: none
+trigger: none
+
+# ----------------------------------
+# Schedule
+# ----------------------------------
+# schedules:
+# - cron: "0 0 * * *"
+#   displayName: Daily midnight build
+#   branches:
+#     include:
+#     - master
+
+# ----------------------------------
+# Use Self-Hoste Pipeline Agent
+# ----------------------------------
+pool: Hosted Agent Pool
+
+steps:
+  - task: AzurePowerShell@4
+    timeoutInMinutes: 360
+    inputs:
+      azureSubscription: 'Service Connection - rg-azure-admin-00'
+      ScriptType: 'FilePath'
+      ScriptPath: 'Exec-Parallel-Jobs.ps1'
+      ScriptArguments: '-NumberOfJobs $(NumberOfJobs)'
+      azurePowerShellVersion: 'LatestVersion'
