@@ -28,7 +28,7 @@ steps:
   - task: AzurePowerShell@4
     timeoutInMinutes: 360
     inputs:
-      azureSubscription: '$SubscriptionId' 
+      azureSubscription: 'Service Connection - rg-azure-admin-00'
       ScriptType: 'FilePath'
       ScriptPath: 'Exec-Parallel-Jobs.ps1'
       ScriptArguments: '-NumberOfJobs $(NumberOfJobs)'
