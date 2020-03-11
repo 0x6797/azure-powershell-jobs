@@ -4,9 +4,8 @@ param (
     [int]
     $NumberOfJobs = 3,
 
-    [Parameter(Mandatory = $true)]
-    [string]
-    $DevTestLabName,
+    [Parameter(Mandatory=$true, HelpMessage="The admin password for the VM")]
+    [System.Security.SecureString] $Password,
 
     [Parameter(Mandatory = $true)]
     [string]
@@ -32,7 +31,7 @@ $buffer = "012456789012456789012456789012456789012456789012456789012456789012456
 for ($index = 0; $index -lt $NumberOfJobs; $index++) {
     $jobs += Start-Job -Name ("Job-" + $index.ToString()) `
         -FilePath $jobScriptLocation `
-        -ArgumentList $ModulePath, $index, $buffer
+        -ArgumentList $ModulePath, $index, $Password, $buffer
 }
 
 $jobCount = $jobs.Count

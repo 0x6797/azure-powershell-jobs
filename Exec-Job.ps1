@@ -8,6 +8,9 @@ param (
     [int]
     $Id = -1,
 
+    [Parameter(Mandatory=$true, HelpMessage="The admin password for the VM")]
+    [System.Security.SecureString] $Password,
+    
     [Parameter(Mandatory = $true, HelpMessage = "Buffer.")]
     [string]
     $buffer
