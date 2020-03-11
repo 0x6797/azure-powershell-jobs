@@ -24,7 +24,7 @@ for ($index = 0; $index -lt $NumberOfJobs; $index++) {
 }
 
 foreach ($job in $jobs) {
-    $jobOutput = Receive-Job $job -Wait
+    $jobOutput = Receive-Job -Job $job -Wait
     Write-Output $jobOutput
 }
 Remove-Job -Job $jobs
