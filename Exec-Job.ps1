@@ -4,9 +4,17 @@ param (
     [string]
     $ModulePath,
 
+    [Parameter(Mandatory = $true)]
+    [string]
+    $DevTestLabName,
+
+    [Parameter(Mandatory = $true)]
+    [string]
+    $VmName,
+
     [Parameter(Mandatory = $true, HelpMessage = "A job ID.")]
     [int]
-    $Id=-1
+    $Id = -1
 )
 
 
@@ -16,6 +24,7 @@ Set-StrictMode -Version Latest
 Import-Module $ModulePath
 
 Write-Debug ("My Job ID is " + $Id.ToString())
-Start-Sleep -Seconds 10.0
+$result = Get-AzResource -ResourceType "Microsoft.DevTestLab/labs/virtualMachines" -Name $DevTestLabName | Where-Object { $_.Name -eq "$DevTestLabName/$VmName"}
+Start-Sleep -Seconds 3.0
 
-return "Succeeded"
+return $result

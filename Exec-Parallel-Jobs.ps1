@@ -2,7 +2,15 @@
 param (
     [Parameter(Mandatory = $true, HelpMessage = "A number of jobs.")]
     [int]
-    $NumberOfJobs = 3
+    $NumberOfJobs = 3,
+
+    [Parameter(Mandatory = $true)]
+    [string]
+    $DevTestLabName,
+
+    [Parameter(Mandatory = $true)]
+    [string]
+    $VmName
 )
 
 $DebugPreference = 'Continue'
@@ -20,7 +28,7 @@ SaveProfile
 for ($index = 0; $index -lt $NumberOfJobs; $index++) {
     $jobs += Start-Job -Name ("Job-" + $index.ToString()) `
         -FilePath $jobScriptLocation `
-        -ArgumentList $ModulePath, $index
+        -ArgumentList $ModulePath, $DevTestLabName, $VmName, $index
 }
 
 Wait-Job -Job $jobs
