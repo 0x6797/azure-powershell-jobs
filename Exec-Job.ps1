@@ -25,6 +25,6 @@ Import-Module $ModulePath
 
 Write-Debug ("My Job ID is " + $Id.ToString())
 $result = Get-AzResource -ResourceType "Microsoft.DevTestLab/labs/virtualMachines" -Name $DevTestLabName | Where-Object { $_.Name -eq "$DevTestLabName/$VmName"}
-Start-Sleep -Seconds 3.0
+Start-Sleep -Seconds 1.0
 
 return $result

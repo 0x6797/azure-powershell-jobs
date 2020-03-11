@@ -8,7 +8,9 @@
             "script": "${file}",
             "cwd": "${workspaceRoot}",
             "args": [
-                "-NumberOfJobs", "3"
+                "-NumberOfJobs", "3",
+                "-DevTestLabName", "dtl-image-factory",
+                "-VmName", "vm-image-factory"
             ]
         }
     ]
