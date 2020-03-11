@@ -6,6 +6,7 @@
 #Your build pipeline references a secret variable named ‘MachinePassword’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab, and then select the option to make it secret. See https://go.microsoft.com/fwlink/?linkid=865972
 variables:
   NumberOfJobs: 3
+  # PoolName : "Your Pipeline Agent name is here."
   # ServiceConnectionName : "Your Service Connection's name is here."
 
 # ----------------------------------
@@ -24,11 +25,16 @@ trigger: none
 #     include:
 #     - master
 
+# ----------------------------------
+# Use Self-Hoste Pipeline Agent
+# ----------------------------------
+pool: '$(PoolName)'
+
 steps:
   - task: AzurePowerShell@4
     timeoutInMinutes: 360
     inputs:
-      azureSubscription: '$ServiceConnectionName'
+      azureSubscription: '$(ServiceConnectionName)'
       ScriptType: 'FilePath'
       ScriptPath: 'Exec-Parallel-Jobs.ps1'
       ScriptArguments: '-NumberOfJobs $(NumberOfJobs)'
