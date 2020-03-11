@@ -14,7 +14,7 @@ param (
 )
 
 
-$DebugPreference = "SilentlyContinue" 
+$DebugPreference = "Continue" 
 Set-StrictMode -Version Latest
 
 # Import-Module $ModulePath
