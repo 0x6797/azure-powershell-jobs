@@ -25,6 +25,8 @@ $jobScriptLocation = Join-Path $scriptFolder "Exec-Job.ps1"
 $jobs = @()
 # SaveProfile
 
+Write-Output "Starting Jobs"
+
 for ($index = 0; $index -lt $NumberOfJobs; $index++) {
     $jobs += Start-Job -Name ("Job-" + $index.ToString()) `
         -FilePath $jobScriptLocation `
