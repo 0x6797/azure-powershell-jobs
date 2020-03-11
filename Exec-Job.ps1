@@ -9,7 +9,7 @@ param (
     $Id = -1,
 
     [Parameter(Mandatory = $true, HelpMessage = "Buffer.")]
-    [sting]
+    [string]
     $buffer
 )
 
