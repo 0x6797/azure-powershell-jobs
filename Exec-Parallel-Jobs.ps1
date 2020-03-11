@@ -23,6 +23,8 @@ for ($index = 0; $index -lt $NumberOfJobs; $index++) {
         -ArgumentList $ModulePath, $index
 }
 
+Wait-Job -Jobs $jobs
+
 foreach ($job in $jobs) {
     $jobOutput = Receive-Job -Job $job -Wait
     Write-Output $jobOutput
