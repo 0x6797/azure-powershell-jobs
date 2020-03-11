@@ -39,6 +39,6 @@ steps:
       azureSubscription: '$(ServiceConnectionName)'
       ScriptType: 'FilePath'
       ScriptPath: 'Exec-Parallel-Jobs.ps1'
-      ScriptArguments: '-NumberOfJobs $(NumberOfJobs) -Password (ConvertTo-SecureString -string "$(Password)" -AsPlainText -Force)'
+      ScriptArguments: '-NumberOfJobs $(NumberOfJobs) -Password $(Password)'
       azurePowerShellVersion: 'LatestVersion'
       
