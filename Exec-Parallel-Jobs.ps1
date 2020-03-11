@@ -19,8 +19,8 @@ $jobs = @()
 
 for ($index = 0; $index -lt $NumberOfJobs; $index++) {
     $jobs += Start-Job -Name ("Job-" + $index.ToString()) `
-        -FilePath $jobScriptLocation `
-        -ArgumentList $Password
+        -FilePath $jobScriptLocation # `
+#        -ArgumentList $Password
 }
 
 Wait-Job -Job $jobs
