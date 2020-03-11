@@ -23,14 +23,16 @@ $jobScriptLocation = Join-Path $scriptFolder "Exec-Job.ps1"
 
 #kick off jobs to deploy all the VMs in parallel
 $jobs = @()
-SaveProfile
+# SaveProfile
 
 for ($index = 0; $index -lt $NumberOfJobs; $index++) {
     $jobs += Start-Job -Name ("Job-" + $index.ToString()) `
         -FilePath $jobScriptLocation `
-        -ArgumentList $ModulePath, $DevTestLabName, $VmName, $index
+        -ArgumentList $ModulePath, $index
 }
 
+$jobCount = $jobs.Count
+Write-Output ("Job count is " + $jobCount)
 Wait-Job -Job $jobs
 
 foreach ($job in $jobs) {

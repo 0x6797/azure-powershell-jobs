@@ -41,3 +41,4 @@ steps:
       ScriptPath: 'Exec-Parallel-Jobs.ps1'
       ScriptArguments: '-NumberOfJobs $(NumberOfJobs) -DevTestLabName $(DevTestLabName) -VmName $(VmName)'
       azurePowerShellVersion: 'LatestVersion'
+      
