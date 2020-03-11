@@ -9,8 +9,7 @@
             "cwd": "${workspaceRoot}",
             "args": [
                 "-NumberOfJobs", "3",
-                "-DevTestLabName", "dtl-image-factory",
-                "-VmName", "vm-image-factory"
+                "-Password",     "(ConvertTo-SecureString -AsPlainText 'CFjNz4shYa63HASzDiZ7Q5LB7mHABM7E' -Force)"
             ]
         }
     ]
