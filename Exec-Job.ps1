@@ -15,5 +15,4 @@ Set-StrictMode -Version Latest
 
 # Import-Module $ModulePath
 
-
-return $result
+return "Succeeded"
