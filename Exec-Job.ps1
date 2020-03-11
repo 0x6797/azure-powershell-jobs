@@ -6,7 +6,11 @@ param (
 
     [Parameter(Mandatory = $true, HelpMessage = "A job ID.")]
     [int]
-    $Id = -1
+    $Id = -1,
+
+    [Parameter(Mandatory = $true, HelpMessage = "Buffer.")]
+    [sting]
+    $buffer
 )
 
 
@@ -14,5 +18,6 @@ $DebugPreference = "SilentlyContinue"
 Set-StrictMode -Version Latest
 
 # Import-Module $ModulePath
+Write-Output $buffer
 
 return "Succeeded"
