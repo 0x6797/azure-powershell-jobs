@@ -5,11 +5,7 @@ param (
     $NumberOfJobs = 3,
 
     [Parameter(Mandatory=$true, HelpMessage="The admin password for the VM")]
-    [System.Security.SecureString] $Password,
-
-    [Parameter(Mandatory = $true)]
-    [string]
-    $VmName
+    [System.Security.SecureString] $Password
 )
 
 $DebugPreference = 'Continue'
