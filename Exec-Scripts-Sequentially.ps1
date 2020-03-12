@@ -15,5 +15,5 @@ $scriptFolder = Split-Path $Script:MyInvocation.MyCommand.Path
 $jobScriptLocation = Join-Path $scriptFolder "Exec-Job.ps1"
 
 for ($index = 0; $index -lt $NumberOfJobs; $index++) {
-    . $jobScriptLocation -ModulePath $modulePath -Password $Password -Id $index
+    . $jobScriptLocation -Password $Password
 }
