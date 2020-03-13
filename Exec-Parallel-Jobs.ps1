@@ -9,6 +9,8 @@ param (
 )
 
 $DebugPreference = 'Continue'
+$WarningPreference = "Continue"
+$InformationPreference = "Continue"
 Set-StrictMode -Version Latest 
 
 $scriptFolder = Split-Path $Script:MyInvocation.MyCommand.Path

@@ -5,7 +5,9 @@ param (
 )
 
 
-$DebugPreference = "Continue" 
+$DebugPreference = "Continue"
+$WarningPreference = "Continue"
+$InformationPreference = "Continue"
 Set-StrictMode -Version Latest
 
 return "Succeeded"
